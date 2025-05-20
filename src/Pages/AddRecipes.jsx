@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddRecipes = () => {
 
@@ -15,7 +16,7 @@ const AddRecipes = () => {
         const categories = Array.from(form.querySelectorAll('input[name="categories"]:checked')).map(cb => cb.value);
         const likeCount = form.likeCount.value;
 
-        const recipe = {
+        const newRecipeData = {
             title,
             image,
             ingredients,
@@ -25,7 +26,27 @@ const AddRecipes = () => {
             categories,
             likeCount
         }
-        console.log(recipe)
+
+        fetch('http://localhost:3000/recipes', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newRecipeData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your recipe has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    form.reset();
+                }
+            })
 
     }
 
@@ -51,7 +72,7 @@ const AddRecipes = () => {
                         type="text"
                         name="image"
                         className="input input-bordered w-full"
-                        placeholder="Enter image URL (4:3 Ratio Preferd)"
+                        placeholder="Enter image URL (4:3 Ratio Preferred)"
                         required
                     />
                 </div>

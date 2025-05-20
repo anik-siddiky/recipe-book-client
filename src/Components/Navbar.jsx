@@ -30,16 +30,16 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-6">
                         <NavLink to="/" className={({ isActive }) => isActive ? 'text-red-600' : ''}>
-                            <li className="md:text-xl font-medium">Home</li>
+                            <li className="md:text-xl font-normal">Home</li>
                         </NavLink>
                         <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}>
-                            <li className="md:text-xl font-medium">All Recipe</li>
+                            <li className="md:text-xl font-normal">All Recipe</li>
                         </NavLink>
                         <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}>
-                            <li className="md:text-xl font-medium">Add Recipe</li>
+                            <li className="md:text-xl font-normal">Add Recipe</li>
                         </NavLink>
                         <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}>
-                            <li className="md:text-xl font-medium">My Recipe</li>
+                            <li className="md:text-xl font-normal">My Recipe</li>
                         </NavLink>
                     </ul>
 
