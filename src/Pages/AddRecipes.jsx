@@ -13,8 +13,19 @@ const AddRecipes = () => {
         const cuisineType = form.cuisineType.value;
         const time = form.prepTime.value;
         const categories = Array.from(form.querySelectorAll('input[name="categories"]:checked')).map(cb => cb.value);
+        const likeCount = form.likeCount.value;
 
-        console.log({ title, image, ingredients, instructions, cuisineType, time, categories });
+        const recipe = {
+            title,
+            image,
+            ingredients,
+            instructions,
+            cuisineType,
+            time,
+            categories,
+            likeCount
+        }
+        console.log(recipe)
 
     }
 
