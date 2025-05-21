@@ -56,7 +56,7 @@ const Hero = () => {
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">Discover Your <br />Next Favorite Meal</h1>
                     <p className="text-base md:text-lg mb-6">Explore a world of delicious recipes tailored to your taste. <br /> Whether you're cooking for one or a crowd, we help you choose with confidence since 2015.</p>
                     <Link to="all-recipes">
-                        <button className="bg-[#ED1C24] text-white px-6 py-3 md:px-16 md:py-7 btn border-none rounded-none md:text-2xl md:font-normal shadow-none">
+                        <button className="bg-[#ED1C24] text-white px-6 py-3 md:px-16 md:py-7 btn border-none rounded-none md:text-2xl md:font-normal shadow-none hover:bg-red-700">
                             Get All Recipes
                         </button>
                     </Link>

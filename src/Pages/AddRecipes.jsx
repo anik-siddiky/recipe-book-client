@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AllContext } from '../Provider/ContextProvider';
 
 const AddRecipes = () => {
+    const { user } = useContext(AllContext)
+    console.log(user)
 
     const handleAddRecipes = (e) => {
         e.preventDefault();
@@ -15,6 +18,9 @@ const AddRecipes = () => {
         const time = form.prepTime.value;
         const categories = Array.from(form.querySelectorAll('input[name="categories"]:checked')).map(cb => cb.value);
         const likeCount = form.likeCount.value;
+        
+        const email = user?.email;
+        console.log(email)
 
         const newRecipeData = {
             title,
@@ -24,6 +30,7 @@ const AddRecipes = () => {
             cuisineType,
             time,
             categories,
+            email,
             likeCount
         }
 

@@ -73,11 +73,11 @@ const Navbar = () => {
                             (
                                 <>
                                     <div className="avatar avatar-online">
-                                        <div className="w-12 rounded-full">
+                                        <div className="md:w-12 w-10 rounded-full">
                                             <img src={user.photoURL || catImg} />
                                         </div>
                                     </div>
-                                    <button onClick={handelLogOut} className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Log Out</button>
+                                    <button onClick={handelLogOut} className='bg-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer text-white hover:bg-red-700'>Log Out</button>
                                 </>
                             )
                             :
@@ -87,7 +87,7 @@ const Navbar = () => {
                                         <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Login</button>
                                     </Link>
                                     <Link to='/signup'>
-                                        <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Signup</button>
+                                        <button className='bg-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer text-white hover:bg-red-700 border border-[#ED1C24]'>Signup</button>
                                     </Link>
                                 </>
                             )

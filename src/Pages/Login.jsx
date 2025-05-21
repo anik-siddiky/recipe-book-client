@@ -5,9 +5,25 @@ import { AllContext } from '../Provider/ContextProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { logIn } = use(AllContext);
+    const { logIn, signInWithGoogle } = use(AllContext);
     const location = useLocation();
     const navigate = useNavigate();
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result);
+                navigate(`${location.state ? location.state : "/"}`)
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Login Successful!",
+                    text: 'You have successfully logged in.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+    }
 
     const handleLogIn = (e) => {
         e.preventDefault();
@@ -48,7 +64,7 @@ const Login = () => {
             <div className=" flex items-center justify-center">
                 <div className="shadow-lg rounded-2xl p-8 w-full max-w-md bg-gray-100">
 
-                    <button className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium hover:bg-gray-100 transition cursor-pointer">
+                    <button onClick={handleGoogleSignIn} className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium hover:bg-gray-100 transition cursor-pointer">
                         <FcGoogle className="text-2xl" />
                         Login with Google
                     </button>

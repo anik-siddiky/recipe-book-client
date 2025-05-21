@@ -1,12 +1,29 @@
 import React, { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AllContext } from '../Provider/ContextProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const { createUser, setUser, updateUser } = use(AllContext)
+    const { createUser, setUser, updateUser, signInWithGoogle } = use(AllContext)
     const [passwordError, setPasswordError] = useState("");
+    const navigate = useNavigate();
+
+    const handleGoogleSingIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                setUser(result.user);
+                navigate("/");
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Account created!',
+                    text: 'Your account has been successfully created.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(error => alert(error.message));
+    }
 
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -75,7 +92,7 @@ const SignUp = () => {
             <div className="flex items-center justify-center">
                 <div className="shadow-lg rounded-2xl p-8 w-full max-w-md bg-gray-100">
 
-                    <button className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium hover:bg-gray-100 transition cursor-pointer">
+                    <button onClick={handleGoogleSingIn} className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium hover:bg-gray-100 transition cursor-pointer">
                         <FcGoogle className="text-2xl" />
                         Sign up with Google
                     </button>
