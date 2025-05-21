@@ -45,8 +45,12 @@ const Navbar = () => {
 
                 </div>
                 <div className="navbar-end md:gap-3 gap-1">
-                    <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Login</button>
-                    <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Signup</button>
+                    <Link to="/login">
+                        <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Login</button>
+                    </Link>
+                    <Link to='/signup'>
+                        <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Signup</button>
+                    </Link>
 
                 </div>
             </div>

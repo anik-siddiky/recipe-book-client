@@ -9,7 +9,7 @@ const RecipeCard = ({ recipe }) => {
 
 
     return (
-        <div className="bg-white rounded shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+        <div className="bg-white shadow-md overflow-hidden hover:shadow-lg transition duration-300">
             <img
                 src={image || placeholderImage}
                 alt={title}
