@@ -7,6 +7,7 @@ import Loading from "../Components/Loading";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
+import SingleRecipeDetailPage from "../Pages/SingleRecipeDetailPage";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
                     <PrivateRoute>
                         <AddRecipes></AddRecipes>
                     </PrivateRoute>
+            },
+            {
+                path: "recipe-details/:id",
+                loader: ({ params }) => fetch(`http://localhost:3000/recipes/${params.id}`),
+                element: <SingleRecipeDetailPage></SingleRecipeDetailPage>
             },
             {
                 path: "my-recipes",
