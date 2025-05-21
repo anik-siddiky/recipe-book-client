@@ -23,7 +23,7 @@ const RecipeCard = ({ recipe }) => {
                 <p className="text-sm text-gray-700">Cuisine: {cuisineType}</p>
                 <p className="text-sm text-gray-700 flex items-center gap-1"><AiFillLike size={18} color='#ED1C24' /> Likes: {likeCount}</p>
                 <Link to={`/recipe-details/${_id}`}>
-                    <button className="w-full mt-3 bg-[#ED1C24] text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
+                    <button className="w-full rounded-none mt-3 bg-[#ED1C24] text-white px-4 py-2  hover:bg-red-700 transition"
                     >View Details</button>
                 </Link>
             </div>

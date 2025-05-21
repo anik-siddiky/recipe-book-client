@@ -35,7 +35,7 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        if (password.length < 8) {
+        if (password.length < 6) {
             setPasswordError("Password must be at least 8 characters long.");
             return;
         }
@@ -49,10 +49,6 @@ const SignUp = () => {
         }
         if (!/\d/.test(password)) {
             setPasswordError("Password must include at least one number.");
-            return;
-        }
-        if (!/[@$!%*?&]/.test(password)) {
-            setPasswordError("Password must include at least one special character.");
             return;
         }
 
