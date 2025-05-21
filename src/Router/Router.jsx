@@ -6,6 +6,7 @@ import AllRecipes from "../Pages/AllRecipes";
 import Loading from "../Components/Loading";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,10 @@ const router = createBrowserRouter([
             },
             {
                 path: "add-recipes",
-                element: <AddRecipes></AddRecipes>
+                element:
+                    <PrivateRoute>
+                        <AddRecipes></AddRecipes>
+                    </PrivateRoute>
             },
             {
                 path: "my-recipes",

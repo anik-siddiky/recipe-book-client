@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import navImage from "../assets/recipe-book-header.png"
+import { AllContext } from '../Provider/ContextProvider';
+import Swal from 'sweetalert2';
+const catImg = "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp";
+
 
 const Navbar = () => {
+
+    const { user, logOut } = use(AllContext);
+    console.log(user)
+
+    const handelLogOut = () => {
+        logOut().then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "You have logged out successfully.",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
+
     return (
         <div className="navbar p-0 bg-base-100 shadow-sm">
             <div className="navbar md:w-10/12 mx-auto md:px-0">
@@ -44,13 +66,32 @@ const Navbar = () => {
                     </ul>
 
                 </div>
+
                 <div className="navbar-end md:gap-3 gap-1">
-                    <Link to="/login">
-                        <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Login</button>
-                    </Link>
-                    <Link to='/signup'>
-                        <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Signup</button>
-                    </Link>
+                    {
+                        user ?
+                            (
+                                <>
+                                    <div className="avatar avatar-online">
+                                        <div className="w-12 rounded-full">
+                                            <img src={user.photoURL || catImg} />
+                                        </div>
+                                    </div>
+                                    <button onClick={handelLogOut} className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Log Out</button>
+                                </>
+                            )
+                            :
+                            (
+                                <>
+                                    <Link to="/login">
+                                        <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Login</button>
+                                    </Link>
+                                    <Link to='/signup'>
+                                        <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Signup</button>
+                                    </Link>
+                                </>
+                            )
+                    }
 
                 </div>
             </div>
