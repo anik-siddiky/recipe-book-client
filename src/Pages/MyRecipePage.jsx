@@ -11,7 +11,7 @@ const MyRecipePage = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/recipes/user/${user.email}`)
+            fetch(`https://recipe-book-server-ten.vercel.app/recipes/user/${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyRecipes(data);
@@ -40,7 +40,7 @@ const MyRecipePage = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/recipes/${id}`, {
+                fetch(`https://recipe-book-server-ten.vercel.app/recipes/${id}`, {
                     method: 'DELETE',
                     headers: {
                         "Content-type": "Application/json"

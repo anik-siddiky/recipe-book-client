@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: "all-recipes",
                 element: <AllRecipes></AllRecipes>,
-                loader: () => fetch('http://localhost:3000/recipes'),
+                loader: () => fetch('https://recipe-book-server-ten.vercel.app/recipes'),
                 hydrateFallbackElement: <Loading></Loading>
             },
             {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "recipe-details/:id",
-                loader: ({ params }) => fetch(`http://localhost:3000/recipes/${params.id}`),
+                loader: ({ params }) => fetch(`https://recipe-book-server-ten.vercel.app/recipes/${params.id}`),
                 element:
                     <PrivateRoute>
                         <SingleRecipeDetailPage></SingleRecipeDetailPage>
@@ -58,6 +58,7 @@ const router = createBrowserRouter([
                     <PrivateRoute>
                         <MyRecipePage></MyRecipePage>
                     </PrivateRoute>,
+                hydrateFallbackElement: <Loading></Loading>
             }
         ]
     },
