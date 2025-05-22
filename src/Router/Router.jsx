@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
 import SingleRecipeDetailPage from "../Pages/SingleRecipeDetailPage";
+import MyRecipePage from "../Pages/MyRecipePage";
 
 const router = createBrowserRouter([
     {
@@ -51,7 +52,10 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-recipes",
-                element: <h1>My Recipes</h1>
+                element:
+                    <PrivateRoute>
+                        <MyRecipePage></MyRecipePage>
+                    </PrivateRoute>,
             }
         ]
     },
