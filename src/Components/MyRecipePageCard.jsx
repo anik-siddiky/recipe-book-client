@@ -1,8 +1,11 @@
 import React from 'react';
+import { FaEdit } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
 
-const MyRecipePageCard = ({ recipe }) => {
+const MyRecipePageCard = ({ recipe, handleRecipeDelete }) => {
 
-    const { title, image, ingredients, instructions, cuisineType, time, categories, likeCount } = recipe;
+    const { title, image, ingredients, instructions, cuisineType, time, categories, likeCount, _id } = recipe;
+
 
 
     return (
@@ -43,10 +46,12 @@ const MyRecipePageCard = ({ recipe }) => {
                 </div>
 
                 <div className="mt-auto flex justify-between items-center gap-4 pt-4">
-                    <button className="bg-black hover:bg-gray-600 text-white px-4 py-2 rounded-md w-full">
+                    <button className="bg-black hover:bg-gray-600 text-white px-4 py-2 rounded-md w-full flex justify-center items-center gap-1">
+                        <FaEdit size={20} />
                         Update
                     </button>
-                    <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md w-full">
+                    <button onClick={() => handleRecipeDelete(_id)} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md w-full flex justify-center items-center gap-1">
+                        <MdDelete size={20} />
                         Delete
                     </button>
                 </div>

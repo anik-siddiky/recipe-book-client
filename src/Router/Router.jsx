@@ -14,11 +14,13 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <HomeLayout></HomeLayout>,
+        hydrateFallbackElement: <Loading></Loading>,
         children: [
             {
                 path: "/",
                 index: true,
-                element: <Home></Home>
+                element: <Home></Home>,
+                hydrateFallbackElement: <Loading></Loading>
             },
             {
                 path: "login",
