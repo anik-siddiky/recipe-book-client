@@ -6,30 +6,37 @@ import likeIcon from "/icons8-like-100.png"
 
 const SingleRecipeDetailPage = () => {
     const recipe = useLoaderData();
-    const {
-        title,
-        image,
-        ingredients,
-        instructions,
-        cuisineType,
-        time,
-        categories,
-        likeCount
-    } = recipe;
+    const { title, image, ingredients, instructions, cuisineType, time, categories, likeCount } = recipe;
 
-    const [likes, setLikes] = useState(parseInt(likeCount) || 0);
+    const [likes, setLikes] = useState(parseInt(likeCount));
 
-    const handleLike = () => {
-        setLikes(prev => prev + 1);
-        Swal.fire({
-            title: "You Liked The Recipe!",
-            imageUrl: likeIcon,
-            imageWidth: 80,
-            imageHeight: 80,
-            imageAlt: "Like Icon",
-            confirmButtonColor: "#ED1C24",
-        });
+    const handleLike = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/recipes/${recipe._id}/like`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setLikes(prev => prev + 1);
+                Swal.fire({
+                    title: "You Liked The Recipe!",
+                    imageUrl: likeIcon,
+                    imageWidth: 80,
+                    imageHeight: 80,
+                    imageAlt: "Like Icon",
+                    confirmButtonColor: "#ED1C24",
+                });
+            } else {
+                console.error("Failed to like the recipe");
+            }
+        } catch (error) {
+            console.error("Error liking recipe:", error);
+        }
     };
+
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-10 md:py-20">
