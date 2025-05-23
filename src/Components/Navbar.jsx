@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import navImage from "../assets/recipe-book-header.png"
 import { AllContext } from '../Provider/ContextProvider';
@@ -9,6 +9,13 @@ const catImg = "https://i.ibb.co.com/JWzvwk7H/catImg.webp";
 const Navbar = () => {
 
     const { user, logOut } = use(AllContext);
+
+    const [isOpen, setIsOpen] = useState(false);
+    const handleAvatarClick = () => {
+        if (window.innerWidth < 768) {
+            setIsOpen(!isOpen);
+        }
+    };
 
     const handelLogOut = () => {
         logOut().then(() => {
@@ -39,9 +46,9 @@ const Navbar = () => {
 
                             <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>All Recipe</li></NavLink>
 
-                            <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>Add Recepie</li></NavLink>
+                            <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>Add Recipe</li></NavLink>
 
-                            <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>My Recepie</li></NavLink>
+                            <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>My Recipe</li></NavLink>
                         </ul>
                     </div>
                     <Link to="/">
@@ -70,36 +77,44 @@ const Navbar = () => {
                     {
                         user ?
                             (
-                                <>
-                                    <div className="avatar avatar-online">
-                                        <div className="md:w-12 w-10 rounded-full">
-                                            <img src={user?.photoURL || user.reloadUserInfo.photoURL || catImg} onError={(e) => {
-                                                e.target.onerror = null;
-                                                e.target.src = catImg;
-                                            }}
-                                                alt="User Avatar" />
+                                <div className='flex items-center md:pr-0 pr-3'>
+                                    <div className="relative group">
+                                        <div
+                                            className="avatar avatar-online cursor-pointer md:mt-0.5"
+                                            onClick={handleAvatarClick}>
+                                            <div className="ring-primary ring-offset-base-100 w-10 md:w-12 rounded-full ring-2 ring-offset-2 py-0">
+                                                <img src={user?.photoURL || user.reloadUserInfo.photoURL || catImg} onError={(e) => {
+                                                    e.target.onerror = null;
+                                                    e.target.src = catImg;
+                                                }}
+                                                    alt="User Avatar" />
+                                            </div>
+                                        </div>
+
+                                        <div className={`absolute top-full right-0 md:left-1/2 md:-translate-x-1/2 mt-2 md:h-32 h-28 w-32 md:w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-50 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"} group-hover:opacity-100 group-hover:visible transition-all duration-200`} >
+                                            <div className="flex flex-col justify-center mt-5 md:mt-4">
+                                                <p className='p-1 md:p-2 text-[14px] md:text-[16px] text-center'>Hi, {user?.displayName || user?.email}</p>
+                                                <div className='flex justify-center'>
+                                                    <button onClick={handelLogOut} className='bg-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer text-white hover:bg-red-700'>Log Out</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <button onClick={handelLogOut} className='bg-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer text-white hover:bg-red-700'>Log Out</button>
-                                </>
+                                </div>
+
                             )
                             :
                             (
                                 <>
                                     <Link to="/login">
-                                        <button className='bg-white border border-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer hover:text-white hover:bg-[#ED1C24]'>Login</button>
-                                    </Link>
-                                    <Link to='/signup'>
-                                        <button className='bg-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer text-white hover:bg-red-700 border border-[#ED1C24]'>Signup</button>
+                                        <button className='bg-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer text-white hover:bg-red-700 border border-[#ED1C24]'>Login</button>
                                     </Link>
                                 </>
                             )
                     }
-
                 </div>
             </div>
         </div>
-
     );
 };
 

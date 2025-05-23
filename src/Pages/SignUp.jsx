@@ -57,6 +57,7 @@ const SignUp = () => {
                 const user = result.user;
                 updateUser({ displayName: fullName, photoURL: imageUrl }).then(() => {
                     setUser({ ...user, displayName: fullName, photoURL: imageUrl });
+                    navigate("/");
                 })
                     .catch(error => {
                         console.log(error);

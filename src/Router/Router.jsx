@@ -9,6 +9,7 @@ import SignUp from "../Pages/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
 import SingleRecipeDetailPage from "../Pages/SingleRecipeDetailPage";
 import MyRecipePage from "../Pages/MyRecipePage";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Home></Home>,
                 hydrateFallbackElement: <Loading></Loading>
+            },
+            {
+                path: "/*",
+                element: <ErrorPage></ErrorPage>
             },
             {
                 path: "login",

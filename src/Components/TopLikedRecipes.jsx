@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TopLikedRecipeCard from './TopLikedRecipeCard';
+import { Link } from 'react-router';
 
 const TopLikedRecipes = () => {
 
@@ -19,6 +20,11 @@ const TopLikedRecipes = () => {
                     recipes.map(recipe => <TopLikedRecipeCard key={recipe._id} recipe={recipe}></TopLikedRecipeCard>)
                 }
             </div>
+            <Link className='flex justify-center md:mt-14 mt-8' to="all-recipes">
+                <button className="bg-[#ED1C24] text-white px-10 py-6 md:px-12 md:py-7 btn border-none rounded-none md:text-2xl md:font-normal shadow-none hover:bg-red-700">
+                    See All Recipes
+                </button>
+            </Link>
         </div>
     );
 };
