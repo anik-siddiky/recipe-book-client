@@ -52,7 +52,7 @@ const SingleRecipeDetailPage = () => {
     return (
         <div className="max-w-4xl mx-auto px-4 py-10 md:py-20">
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src={image} alt={title} className="w-full md:h-[300px] h-72 " />
+                <img src={image} alt={title} className="w-full md:h-[500px] h-72 " />
 
                 <div className="p-6">
                     <p className='text-green-700 font-medium md:mb-3 mb-2'>{likes} people are interested in this recipe!</p>

@@ -41,7 +41,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow md:gap-4">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-40 p-2 shadow gap-2">
                             <NavLink to="/" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>Home</li></NavLink>
 
                             <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>All Recipe</li></NavLink>
@@ -57,20 +57,19 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-6">
-                        <NavLink to="/" className={({ isActive }) => isActive ? 'text-red-600' : ''}>
+                        <NavLink to="/" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24]'}>
                             <li className="md:text-[18px] font-normal">Home</li>
                         </NavLink>
-                        <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}>
+                        <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24]'}>
                             <li className="md:text-[18px] font-normal">All Recipe</li>
                         </NavLink>
-                        <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}>
+                        <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24]'}>
                             <li className="md:text-[18px] font-normal">Add Recipe</li>
                         </NavLink>
-                        <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}>
+                        <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24]'}>
                             <li className="md:text-[18px] font-normal">My Recipe</li>
                         </NavLink>
                     </ul>
-
                 </div>
 
                 <div className="navbar-end md:gap-3 gap-1">
@@ -82,7 +81,7 @@ const Navbar = () => {
                                         <div
                                             className="avatar avatar-online cursor-pointer md:mt-0.5"
                                             onClick={handleAvatarClick}>
-                                            <div className="ring-primary ring-offset-base-100 w-10 md:w-12 rounded-full ring-2 ring-offset-2 py-0">
+                                            <div className="  w-10 md:w-12 rounded-full">
                                                 <img src={user?.photoURL || user.reloadUserInfo.photoURL || catImg} onError={(e) => {
                                                     e.target.onerror = null;
                                                     e.target.src = catImg;

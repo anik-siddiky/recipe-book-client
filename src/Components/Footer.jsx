@@ -3,13 +3,16 @@ import footerLogo from "../assets/recipe-book-footer.png"
 import { Link } from 'react-router';
 
 const Footer = () => {
+    const goToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     return (
         <div className='bg-black py-20 md:py-28 md:flex'>
 
 
             <div className="footer footer-horizontal footer-center bg-black text-primary-content md:px-0 px-3">
                 <aside>
-                    <Link to="/">
+                    <Link onClick={goToTop} to="/">
                         <img className='md:w-44 w-28' src={footerLogo} alt="" />
                     </Link>
                     <p className="font-bold">
