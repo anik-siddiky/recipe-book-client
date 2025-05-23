@@ -77,7 +77,7 @@ const Hero = () => {
 
                     <p className="text-base md:text-lg mb-6">Explore a world of delicious recipes tailored to your taste. <br /> Whether you're cooking for one or a crowd, we help you choose with confidence since 2015.</p>
                     <Link to="all-recipes">
-                        <button className="bg-[#ED1C24] text-white px-6 py-3 md:px-12 md:py-6 btn border-none rounded-none md:text-2xl md:font-normal shadow-none hover:bg-red-700 hover:scale-110 hover:shadow-xl transition duration-400 ease-in-out">
+                        <button className="bg-[#ED1C24] text-white px-6 py-3 md:px-12 md:py-7 btn border-none rounded-none md:text-2xl md:font-normal shadow-none hover:bg-red-700 hover:scale-110 hover:shadow-xl transition duration-400 ease-in-out">
                             Get All Recipes
                         </button>
                     </Link>
