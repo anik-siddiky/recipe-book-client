@@ -3,13 +3,12 @@ import { Link, NavLink } from 'react-router';
 import navImage from "../assets/recipe-book-header.png"
 import { AllContext } from '../Provider/ContextProvider';
 import Swal from 'sweetalert2';
-const catImg = "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp";
+const catImg = "https://i.ibb.co.com/JWzvwk7H/catImg.webp";
 
 
 const Navbar = () => {
 
     const { user, logOut } = use(AllContext);
-    console.log(user)
 
     const handelLogOut = () => {
         logOut().then(() => {
@@ -74,7 +73,11 @@ const Navbar = () => {
                                 <>
                                     <div className="avatar avatar-online">
                                         <div className="md:w-12 w-10 rounded-full">
-                                            <img src={user.photoURL || catImg} />
+                                            <img src={user?.photoURL || user.reloadUserInfo.photoURL || catImg} onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = catImg;
+                                            }}
+                                                alt="User Avatar" />
                                         </div>
                                     </div>
                                     <button onClick={handelLogOut} className='bg-[#ED1C24] md:px-8 md:py-2 px-4 py-1 rounded cursor-pointer text-white hover:bg-red-700'>Log Out</button>

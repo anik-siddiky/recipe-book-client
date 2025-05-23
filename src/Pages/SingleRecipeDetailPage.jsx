@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiFillLike } from 'react-icons/ai';
 import { Link, useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 import likeIcon from "/icons8-like-100.png"
+import { Tooltip } from 'react-tooltip';
+import { AllContext } from '../Provider/ContextProvider';
 
 const SingleRecipeDetailPage = () => {
     const recipe = useLoaderData();
+    const { user } = useContext(AllContext);
+    const recipeEmail = recipe.email;
+    const userEmail = user.email;
+    console.log(recipeEmail, userEmail)
+
     const { title, image, ingredients, instructions, cuisineType, time, categories, likeCount } = recipe;
 
     const [likes, setLikes] = useState(parseInt(likeCount));
 
     const handleLike = async () => {
+        if (userEmail === recipeEmail) return;
         try {
-            const response = await fetch(`https://recipe-book-server-ten.vercel.app/recipes/${recipe._id}/like`, {
+            const response = await fetch(`http://localhost:3000/recipes/${recipe._id}/like`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,11 +70,23 @@ const SingleRecipeDetailPage = () => {
                         <div className="flex justify-start md:justify-end">
                             <button
                                 onClick={handleLike}
-                                className="flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1 md:py-2 bg-blue-500 text-white text-xs md:text-sm rounded hover:bg-blue-600"
-                            >
+                                disabled={userEmail === recipeEmail}
+                                {...(userEmail === recipeEmail
+                                    ? {
+                                        'data-tooltip-id': 'likeTip',
+                                        'data-tooltip-content': 'You can’t like your own recipe!',
+                                    }
+                                    : {})}
+                                className={`flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1 md:py-2 text-white text-xs md:text-sm rounded ${userEmail === recipeEmail
+                                        ? 'bg-gray-400 cursor-not-allowed opacity-50'
+                                        : 'bg-blue-500 hover:bg-blue-600'}`}>
                                 <AiFillLike size={16} className="md:size-[18px]" />
-                                Like It
-                            </button>
+                                Like It</button>
+
+                            {userEmail === recipeEmail && (
+                                <Tooltip id="likeTip" place="top" />
+                            )}
+
                         </div>
                     </div>
 

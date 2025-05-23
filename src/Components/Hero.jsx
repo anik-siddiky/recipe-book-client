@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router";
+import { Typewriter } from "react-simple-typewriter";
 
 const images = [
     "/hero-image-1.jpg",
@@ -53,7 +54,27 @@ const Hero = () => {
 
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-20 text-white text-center px-4">
                 <div className="">
-                    <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">Discover Your <br />Next Favorite Meal</h1>
+
+
+                    <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+                        Discover Your <br />
+                        <span className="text-2xl md:text-4xl">
+                            <span className="text-[#ED1C24]">
+                                <Typewriter
+                                    words={['Next Favorite Meal', 'Dream Dinner Tonight', 'Go-To Comfort Dish', 'Ultimate Feast']}
+                                    loop={true}
+                                    cursor
+                                    cursorStyle="..."
+                                    typeSpeed={60}
+                                    deleteSpeed={40}
+                                    delaySpeed={1000}
+                                />
+                            </span>
+                        </span>
+                    </h1>
+
+
+
                     <p className="text-base md:text-lg mb-6">Explore a world of delicious recipes tailored to your taste. <br /> Whether you're cooking for one or a crowd, we help you choose with confidence since 2015.</p>
                     <Link to="all-recipes">
                         <button className="bg-[#ED1C24] text-white px-6 py-3 md:px-16 md:py-7 btn border-none rounded-none md:text-2xl md:font-normal shadow-none hover:bg-red-700">

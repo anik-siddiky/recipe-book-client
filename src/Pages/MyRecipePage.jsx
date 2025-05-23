@@ -1,32 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AllContext } from '../Provider/ContextProvider';
 import MyRecipePageCard from '../Components/MyRecipePageCard';
+import RecipeUpdateModal from '../Components/RecipeUpdateModal';
 import Loading from '../Components/Loading';
 import Swal from 'sweetalert2';
 
 const MyRecipePage = () => {
-
     const { user, loading, setLoading } = useContext(AllContext);
     const [myRecipes, setMyRecipes] = useState([]);
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://recipe-book-server-ten.vercel.app/recipes/user/${user.email}`)
+            fetch(`http://localhost:3000/recipes/user/${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyRecipes(data);
-                    setLoading(false)
+                    setLoading(false);
                 })
                 .catch(error => {
                     console.log(error);
-                    setLoading(false)
+                    setLoading(false);
                 });
         }
-    }, [user, setLoading, loading])
-
-    if (loading) {
-        return <Loading></Loading>
-    }
+    }, [user, setLoading]);
 
 
     const handleRecipeDelete = (id) => {
@@ -40,10 +36,10 @@ const MyRecipePage = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://recipe-book-server-ten.vercel.app/recipes/${id}`, {
+                fetch(`http://localhost:3000/recipes/${id}`, {
                     method: 'DELETE',
                     headers: {
-                        "Content-type": "Application/json"
+                        "Content-Type": "application/json"
                     }
                 })
                     .then(res => res.json())
@@ -65,14 +61,23 @@ const MyRecipePage = () => {
         });
     };
 
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
-        <div className='md:py-10 py-5 md:mb-20'>
-            <h2 className='text-center font-medium md:text-4xl text-3xl mb-3'>Your Total Recipes: {myRecipes.length}</h2>
+        <div className='md:py-10 py-5 md:mb-20 min-h-screen'>
+            <h2 className='text-center font-medium md:text-4xl text-3xl mb-3'>
+                Your Total Recipes: {myRecipes.length}
+            </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 md:w-10/12 md:px-0 px-4 mx-auto'>
-                {
-                    myRecipes.map(recipe => <MyRecipePageCard key={recipe._id} handleRecipeDelete={handleRecipeDelete} recipe={recipe}></MyRecipePageCard>)
-                }
+                {myRecipes.map(recipe => (
+                    <MyRecipePageCard
+                        key={recipe._id}
+                        recipe={recipe}
+                        handleRecipeDelete={handleRecipeDelete}
+                    />
+                ))}
             </div>
         </div>
     );

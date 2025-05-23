@@ -20,7 +20,15 @@ const AddRecipes = () => {
         const likeCount = parseInt(form.likeCount.value);
 
         const email = user?.email;
-        console.log(email)
+
+        if (categories.length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please select at least one category.',
+            });
+            return;
+        }
 
         const newRecipeData = {
             title,
@@ -34,7 +42,7 @@ const AddRecipes = () => {
             likeCount
         }
 
-        fetch('https://recipe-book-server-ten.vercel.app/recipes', {
+        fetch('http://localhost:3000/recipes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

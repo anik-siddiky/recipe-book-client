@@ -2,11 +2,11 @@ import React from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
-const MyRecipePageCard = ({ recipe, handleRecipeDelete }) => {
-
-    const { title, image, ingredients, instructions, cuisineType, time, categories, likeCount, _id } = recipe;
-
-
+const MyRecipePageCard = ({ recipe, handleRecipeDelete, handleUpdateClick }) => {
+    const {
+        title, image, ingredients, instructions,
+        cuisineType, time, categories, likeCount, _id
+    } = recipe;
 
     return (
         <div className="bg-white shadow-lg rounded-2xl overflow-hidden m-4 border border-gray-100 flex flex-col">
@@ -35,10 +35,7 @@ const MyRecipePageCard = ({ recipe, handleRecipeDelete }) => {
                     <p className="font-semibold">Categories:</p>
                     <div className="flex flex-wrap gap-2 mt-1">
                         {categories?.map((cat, idx) => (
-                            <span
-                                key={idx}
-                                className="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded"
-                            >
+                            <span key={idx} className="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded">
                                 {cat}
                             </span>
                         ))}
@@ -46,11 +43,17 @@ const MyRecipePageCard = ({ recipe, handleRecipeDelete }) => {
                 </div>
 
                 <div className="mt-auto flex justify-between items-center gap-4 pt-4">
-                    <button className="bg-black hover:bg-gray-600 text-white px-4 py-2 rounded-md w-full flex justify-center items-center gap-1">
+                    <button
+                        onClick={handleUpdateClick}
+                        className="bg-black hover:bg-gray-600 text-white px-4 py-2 rounded-md w-full flex justify-center items-center gap-1"
+                    >
                         <FaEdit size={20} />
                         Update
                     </button>
-                    <button onClick={() => handleRecipeDelete(_id)} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md w-full flex justify-center items-center gap-1">
+                    <button
+                        onClick={() => handleRecipeDelete(_id)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md w-full flex justify-center items-center gap-1"
+                    >
                         <MdDelete size={20} />
                         Delete
                     </button>
