@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiFillLike } from 'react-icons/ai';
 import { Link, useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
@@ -11,7 +11,10 @@ const SingleRecipeDetailPage = () => {
     const { user } = useContext(AllContext);
     const recipeEmail = recipe.email;
     const userEmail = user.email;
-    console.log(recipeEmail, userEmail)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const { title, image, ingredients, instructions, cuisineType, time, categories, likeCount } = recipe;
 
@@ -52,6 +55,7 @@ const SingleRecipeDetailPage = () => {
                 <img src={image} alt={title} className="w-full md:h-[300px] h-72 " />
 
                 <div className="p-6">
+                    <p className='text-green-700 font-medium md:mb-3 mb-2'>{likes} people are interested in this recipe!</p>
                     <h1 className="text-2xl md:text-3xl font-bold mb-4">{title}</h1>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
@@ -78,8 +82,8 @@ const SingleRecipeDetailPage = () => {
                                     }
                                     : {})}
                                 className={`flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1 md:py-2 text-white text-xs md:text-sm rounded ${userEmail === recipeEmail
-                                        ? 'bg-gray-400 cursor-not-allowed opacity-50'
-                                        : 'bg-blue-500 hover:bg-blue-600'}`}>
+                                    ? 'bg-gray-400 cursor-not-allowed opacity-50'
+                                    : 'bg-blue-500 hover:bg-blue-600'}`}>
                                 <AiFillLike size={16} className="md:size-[18px]" />
                                 Like It</button>
 
