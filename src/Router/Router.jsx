@@ -10,6 +10,7 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import SingleRecipeDetailPage from "../Pages/SingleRecipeDetailPage";
 import MyRecipePage from "../Pages/MyRecipePage";
 import ErrorPage from "../Pages/ErrorPage";
+import ErrorLayout from "../Layouts/ErrorLayout";
 
 const router = createBrowserRouter([
     {
@@ -22,10 +23,6 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Home></Home>,
                 hydrateFallbackElement: <Loading></Loading>
-            },
-            {
-                path: "/*",
-                element: <ErrorPage></ErrorPage>
             },
             {
                 path: "login",
@@ -67,6 +64,16 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: "*",
+        element: <ErrorLayout></ErrorLayout>,
+        children: [
+            {
+                path: "*",
+                element: <ErrorPage></ErrorPage>
+            }
+        ]
+    }
 ])
 
 export default router
