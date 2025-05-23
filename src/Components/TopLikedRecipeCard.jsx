@@ -8,7 +8,7 @@ const TopLikedRecipeCard = ({ recipe }) => {
     const placeholderImage = "https://images.deliveryhero.io/image/foodpanda/city-page/refresh-hero-city-bd.png"
 
     return (
-        <div className="bg-gray-100 shadow-xl overflow-hidden hover:shadow-lg transition duration-300 rounded-sm">
+        <div className="bg-gray-100 shadow-xl hover:scale-105 overflow-hidden transition duration-300 rounded-sm">
             <div>
                 <img
                     src={image || placeholderImage}

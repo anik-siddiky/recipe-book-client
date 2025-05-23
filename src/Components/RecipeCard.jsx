@@ -10,7 +10,7 @@ const RecipeCard = ({ recipe }) => {
 
 
     return (
-        <div className="bg-gray-100 shadow-xl overflow-hidden hover:shadow-lg transition duration-300 rounded-sm">
+        <div className="bg-gray-100 shadow-xl hover:scale-105 overflow-hidden hover:shadow-lg transition duration-300 rounded-sm">
             <div>
                 <img
                     src={image || placeholderImage}
