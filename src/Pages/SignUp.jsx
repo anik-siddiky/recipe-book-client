@@ -92,7 +92,7 @@ const SignUp = () => {
 
                     <button
                         onClick={handleGoogleSingIn}
-                        className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium transition cursor-pointer bg-gray-200 text-black border-gray-200 bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
+                        className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium transition cursor-pointer text-black border-gray-200 bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
                     >
                         <FcGoogle className="text-2xl" />
                         Sign up with Google
