@@ -50,13 +50,13 @@ const SingleRecipeDetailPage = () => {
 
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-10 md:py-20">
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 py-10 md:py-20 ">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden dark:bg-gray-800">
                 <img src={image} alt={title} className="w-full md:h-[500px] h-72 " />
 
                 <div className="p-6">
                     <p className='text-green-700 font-medium md:mb-3 mb-2'>{likes} people are interested in this recipe!</p>
-                    <h1 className="text-2xl md:text-3xl font-bold mb-4">{title}</h1>
+                    <h1 className="text-2xl md:text-3xl font-bold mb-4 text-black dark:text-white">{title}</h1>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
                         <div className="flex flex-wrap gap-2 text-sm text-gray-600">
@@ -95,7 +95,7 @@ const SingleRecipeDetailPage = () => {
                     </div>
 
                     <div className="mb-4">
-                        <h2 className="text-lg md:text-xl font-semibold mb-2">Categories</h2>
+                        <h2 className="text-lg md:text-xl font-semibold mb-2 text-black dark:text-white">Categories</h2>
                         <div className="flex flex-wrap gap-2">
                             {categories.map((cat, index) => (
                                 <span
@@ -109,18 +109,18 @@ const SingleRecipeDetailPage = () => {
                     </div>
 
                     <div className="mb-4">
-                        <h2 className="text-lg md:text-xl font-semibold mb-2">Ingredients</h2>
-                        <p className="text-gray-700 text-sm md:text-base">{ingredients}</p>
+                        <h2 className="text-lg md:text-xl font-semibold mb-2 text-black dark:text-white">Ingredients</h2>
+                        <p className="text-gray-700 text-sm md:text-base text-black dark:text-white">{ingredients}</p>
                     </div>
 
                     <div>
-                        <h2 className="text-lg md:text-xl font-semibold mb-2">Instructions</h2>
-                        <p className="text-gray-700 text-sm md:text-base">{instructions}</p>
+                        <h2 className="text-lg md:text-xl font-semibold mb-2 text-black dark:text-white">Instructions</h2>
+                        <p className="text-gray-700 text-sm md:text-base text-black dark:text-white">{instructions}</p>
                     </div>
                 </div>
             </div>
             <Link className='flex justify-center' to="/all-recipes">
-                <button className='btn hover:bg-red-700 bg-[#ED1C24] md:text-xl md:font-normal md:py-6 text-white w-1/2  mt-10 md:mt-20'>Back to All Recipes</button>
+                <button className='border-none btn hover:bg-red-700 bg-[#ED1C24] md:text-xl md:font-normal md:py-6 text-white w-1/2  mt-10 md:mt-20'>Back to All Recipes</button>
             </Link>
         </div>
     );

@@ -35,7 +35,7 @@ const chefs = [
 const TopCookSection = () => {
     return (
         <div className="pb-20 md:px-0 px-4">
-            <h3 className="text-center text-2xl md:text-4xl font-bold md:mb-12 mb-6 text-gray-800">
+            <h3 className="text-center text-2xl md:text-4xl font-bold md:mb-12 mb-6 text-black dark:text-white">
                 Our Top Recipe Creators
             </h3>
 
@@ -43,12 +43,12 @@ const TopCookSection = () => {
                 {chefs.map((chef, index) => (
                     <div
                         key={index}
-                        className="md:bg-white bg-gray-100 shadow-lg rounded-xl p-6 text-center transition-transform transform hover:scale-105 border border-transparent hover:shadow-[0_0_15px_#ED1C24]">
+                        className="md:bg-white bg-gray-100 shadow-lg rounded-xl p-6 text-center transition-transform transform hover:scale-105 border border-transparent hover:shadow-[0_0_15px_#ED1C24] dark:bg-gray-800">
                         <img
                             src={chef.image}
                             alt={chef.name}
                             className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-[#ED1C24] shadow-md"/>
-                        <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                        <h4 className="text-xl font-semibold text-gray-800 mb-2 text-black dark:text-white">
                             {chef.name}
                         </h4>
                         <div className="flex justify-center mb-3">
@@ -56,7 +56,7 @@ const TopCookSection = () => {
                                 <FaStar key={i} color="#FFD700" className="mx-0.5" />
                             ))}
                         </div>
-                        <p className="text-gray-600 text-sm">{chef.description}</p>
+                        <p className="text-black dark:text-white text-sm">{chef.description}</p>
                     </div>
                 ))}
             </div>

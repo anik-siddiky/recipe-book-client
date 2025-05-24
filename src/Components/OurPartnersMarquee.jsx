@@ -15,7 +15,7 @@ const OurPartnersMarquee = () => {
 
     return (
         <div className='py-10 md:py-20 md:w-10/12 md:px-0 px-4 mx-auto'>
-            <h4 className='text-3xl md:text-4xl font-semibold text-center mb-8 md:mb-14'>Our Partners</h4>
+            <h4 className='text-3xl md:text-4xl font-semibold text-center mb-8 md:mb-14 text-black dark:text-white'>Our Partners</h4>
             <Marquee speed={70} gradient={false}>
                 {logos.map((logo, index) => (<img key={index} src={logo} className='w-40 md:w-52 ' />
                 ))}

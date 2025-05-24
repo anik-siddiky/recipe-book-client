@@ -16,7 +16,7 @@ const AllRecipes = () => {
 
     return (
         <div className='md:w-10/12 md:px-0 px-4 mx-auto py-7 md:py-10 md:mb-10 mb-5'>
-            <h2 className="text-2xl md:text-4xl font-semibold text-center">All Recipes</h2>
+            <h2 className="text-2xl md:text-4xl font-semibold text-center text-black dark:text-white">All Recipes</h2>
 
             <div className='flex justify-end my-3 md:my-5'>
                 <div className="dropdown dropdown-center">

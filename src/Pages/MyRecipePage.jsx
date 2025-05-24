@@ -67,7 +67,7 @@ const MyRecipePage = () => {
 
     return (
         <div className='md:py-10 py-5 md:mb-20 min-h-screen'>
-            <h2 className='text-center font-medium md:text-4xl text-3xl mb-3'>
+            <h2 className='text-center font-medium md:text-4xl text-3xl mb-3 text-black dark:text-white'>
                 Your Total Recipes: {myRecipes.length}
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 md:w-10/12 md:px-0 px-4 mx-auto'>

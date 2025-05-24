@@ -65,7 +65,7 @@ const Footer = () => {
                 <h1 className="text-xl antialiased font-bold leading-none text-center md:text-3xl text-white mb-4">Get Our Updates</h1>
                 <p className='text-white mb-4'>We will send you some special recipes.</p>
                 <div className="flex flex-row">
-                    <input type="text" placeholder="Your Email" className="p-3 rounded-l-lg w-full sm:w-2/3 bg-white" />
+                    <input type="text" placeholder="Your Email" className="p-3 rounded-l-lg w-full sm:w-2/3 text-black dark:text-white bg-white" />
                     <button type="button" className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3 bg-[#ED1C24] text-white cursor-pointer">Subscribe</button>
                 </div>
             </div>

@@ -58,10 +58,10 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-white dark:bg-gray-800 rounded-box z-10 mt-3 w-40 p-2 shadow gap-2"
             >
-              <NavLink to="/" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>Home</li></NavLink>
-              <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>All Recipe</li></NavLink>
-              <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>Add Recipe</li></NavLink>
-              <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-red-600' : ''}><li>My Recipe</li></NavLink>
+              <NavLink to="/" className={({ isActive }) => isActive ? 'text-red-600' : 'text-black dark:text-white'}><li>Home</li></NavLink>
+              <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-red-600' : 'text-black dark:text-white'}><li>All Recipe</li></NavLink>
+              <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-red-600' : 'text-black dark:text-white'}><li>Add Recipe</li></NavLink>
+              <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-red-600' : 'text-black dark:text-white'}><li>My Recipe</li></NavLink>
             </ul>
           </div>
           <Link to="/">
@@ -138,7 +138,7 @@ const Navbar = () => {
                   } group-hover:opacity-100 group-hover:visible transition-all duration-200`}
                 >
                   <div className="flex flex-col justify-center mt-5 md:mt-4">
-                    <p className="p-1 md:p-2 text-[14px] md:text-[16px] text-center">
+                    <p className="p-1 md:p-2 text-[14px] md:text-[16px] text-center text-black dark:text-white">
                       Hi, {user?.displayName || user?.email}
                     </p>
                     <div className="flex justify-center">
