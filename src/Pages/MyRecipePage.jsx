@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 const MyRecipePage = () => {
     const { user, loading, setLoading } = useContext(AllContext);
     const [myRecipes, setMyRecipes] = useState([]);
+    const [selectedRecipe, setSelectedRecipe] = useState(null);
 
     useEffect(() => {
         if (user?.email) {
@@ -23,6 +24,13 @@ const MyRecipePage = () => {
                 });
         }
     }, [user, setLoading]);
+
+
+    const refreshRecipes = () => {
+        fetch(`http://localhost:3000/recipes/user/${user.email}`)
+            .then(res => res.json())
+            .then(setMyRecipes);
+    };
 
 
     const handleRecipeDelete = (id) => {
@@ -76,9 +84,20 @@ const MyRecipePage = () => {
                         key={recipe._id}
                         recipe={recipe}
                         handleRecipeDelete={handleRecipeDelete}
+                        onUpdateClick={() => setSelectedRecipe(recipe)}
                     />
                 ))}
             </div>
+            {selectedRecipe && (
+                <RecipeUpdateModal
+                    recipe={selectedRecipe}
+                    onClose={() => {
+                        refreshRecipes();
+                        setSelectedRecipe(null)
+
+                    }}
+                />
+            )}
         </div>
     );
 };

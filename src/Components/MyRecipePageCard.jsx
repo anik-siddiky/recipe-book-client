@@ -2,7 +2,7 @@ import React from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
-const MyRecipePageCard = ({ recipe, handleRecipeDelete, handleUpdateClick }) => {
+const MyRecipePageCard = ({ recipe, handleRecipeDelete, onUpdateClick }) => {
     const {
         title, image, ingredients, instructions,
         cuisineType, time, categories, likeCount, _id
@@ -21,7 +21,7 @@ const MyRecipePageCard = ({ recipe, handleRecipeDelete, handleUpdateClick }) => 
                 </div>
 
                 <div className="mb-2">
-                    <p className="font-semibold">Instructions:</p>
+                    <p className="font-semibold text-black dark:text-white">Instructions:</p>
                     <p className="text-sm text-gray-700 dark:text-gray-300">{instructions}</p>
                 </div>
 
@@ -44,7 +44,7 @@ const MyRecipePageCard = ({ recipe, handleRecipeDelete, handleUpdateClick }) => 
 
                 <div className="mt-auto flex justify-between items-center gap-4 pt-4">
                     <button
-                        onClick={handleUpdateClick}
+                    onClick={onUpdateClick}
                         className="bg-black hover:bg-gray-600 text-white px-4 py-2 rounded-md w-full flex justify-center items-center gap-1"
                     >
                         <FaEdit size={20} />

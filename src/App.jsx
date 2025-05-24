@@ -4,7 +4,6 @@ function App() {
 
   return (
     <>
-     <h2>Anik</h2>
     </>
   )
 }
