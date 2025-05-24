@@ -55,7 +55,7 @@ const SingleRecipeDetailPage = () => {
                 <img src={image} alt={title} className="w-full md:h-[500px] h-72 " />
 
                 <div className="p-6">
-                    <p className='text-green-700 font-medium md:mb-3 mb-2'>{likes} people are interested in this recipe!</p>
+                    <p className='text-green-700 font-medium md:mb-3 mb-2 italic'>{likes} people are interested in this recipe!</p>
                     <h1 className="text-2xl md:text-3xl font-bold mb-4 text-black dark:text-white">{title}</h1>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
