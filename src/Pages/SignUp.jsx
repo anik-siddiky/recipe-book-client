@@ -58,11 +58,10 @@ const SignUp = () => {
                 updateUser({ displayName: fullName, photoURL: imageUrl }).then(() => {
                     setUser({ ...user, displayName: fullName, photoURL: imageUrl });
                     navigate("/");
-                })
-                    .catch(error => {
-                        console.log(error);
-                        setUser(user);
-                    })
+                }).catch(error => {
+                    console.log(error);
+                    setUser(user);
+                });
 
                 Swal.fire({
                     icon: 'success',
@@ -85,61 +84,66 @@ const SignUp = () => {
 
     return (
         <div className='pt-8 md:px-0 px-4 pb-40'>
-            <h2 className='md:text-4xl text-3xl text-center font-semibold md:mb-8 mb-6'>Signup Now</h2>
+            <h2 className='md:text-4xl text-3xl text-center font-semibold md:mb-8 mb-6 text-black dark:text-white'>
+                Signup Now
+            </h2>
             <div className="flex items-center justify-center">
-                <div className="shadow-lg rounded-2xl p-8 w-full max-w-md bg-gray-100">
+                <div className="shadow-lg rounded-2xl p-8 w-full max-w-md bg-gray-100 dark:bg-gray-800">
 
-                    <button onClick={handleGoogleSingIn} className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium hover:bg-gray-100 transition cursor-pointer">
+                    <button
+                        onClick={handleGoogleSingIn}
+                        className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium transition cursor-pointer bg-gray-200 text-black border-gray-200 bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
+                    >
                         <FcGoogle className="text-2xl" />
                         Sign up with Google
                     </button>
 
                     <div className="flex items-center my-6">
-                        <hr className="flex-grow border-gray-300" />
-                        <span className="mx-4 text-gray-400 font-semibold">or</span>
-                        <hr className="flex-grow border-gray-300" />
+                        <hr className="flex-grow border-gray-300 dark:border-gray-600" />
+                        <span className="mx-4 text-gray-500 dark:text-gray-400 font-semibold">or</span>
+                        <hr className="flex-grow border-gray-300 dark:border-gray-600" />
                     </div>
 
                     <form onSubmit={handleSignUp} className="space-y-4">
                         <div>
-                            <label className="block font-medium mb-1">Full Name</label>
+                            <label className="block font-medium mb-1 text-black dark:text-white">Full Name</label>
                             <input
                                 type="text"
                                 name="fullName"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-gray-200 text-black border-gray-300 dark:border-gray-200 dark:bg-gray-700 dark:text-white"
                                 placeholder="Enter your name"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block font-medium mb-1">Image URL</label>
+                            <label className="block font-medium mb-1 text-black dark:text-white">Image URL</label>
                             <input
                                 type="text"
                                 name="imageUrl"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-gray-200 text-black border-gray-300 dark:border-gray-200 dark:bg-gray-700 dark:text-white"
                                 placeholder="Paste profile image URL"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block font-medium mb-1">Email</label>
+                            <label className="block font-medium mb-1 text-black dark:text-white">Email</label>
                             <input
                                 type="email"
                                 name="email"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-gray-200 text-black border-gray-300 dark:border-gray-200 dark:bg-gray-700 dark:text-white"
                                 placeholder="Enter email"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block font-medium mb-1">Password</label>
+                            <label className="block font-medium mb-1 text-black dark:text-white">Password</label>
                             <input
                                 type="password"
                                 name="password"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-gray-200 text-black border-gray-300 dark:border-gray-200 dark:bg-gray-700 dark:text-white"
                                 placeholder="Enter password"
                                 required
                             />
@@ -151,14 +155,14 @@ const SignUp = () => {
 
                         <button
                             type="submit"
-                            className="btn w-full text-white bg-[#ED1C24] hover:bg-[#c9151c] transition"
+                            className="btn border-none w-full text-white bg-[#ED1C24] hover:bg-[#c9151c] transition"
                         >
                             Sign Up
                         </button>
 
-                        <small>
+                        <small className="block text-center text-black dark:text-white">
                             Already have an account?{' '}
-                            <Link to="/login" className='underline text-[#ED1C24]'>
+                            <Link to="/login" className='underline text-[#ED1C24] dark:text-red-400'>
                                 Login
                             </Link>
                         </small>

@@ -60,41 +60,42 @@ const Login = () => {
 
     return (
         <div className='md:pt-16 pt-8 md:px-0 px-4 pb-48'>
-            <h2 className='md:text-4xl text-3xl text-center font-semibold md:mb-8 mb-6'>Login Now</h2>
-            <div className=" flex items-center justify-center">
-                <div className="shadow-lg rounded-2xl p-8 w-full max-w-md bg-gray-100">
+            <h2 className='md:text-4xl text-3xl text-center font-semibold md:mb-8 mb-6 text-black dark:text-white'>Login Now</h2>
+            <div className="flex items-center justify-center">
+                <div className="shadow-lg rounded-2xl p-8 w-full max-w-md bg-gray-100 dark:bg-gray-800">
 
-                    <button onClick={handleGoogleSignIn} className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium hover:bg-gray-100 transition cursor-pointer">
+                    <button
+                        onClick={handleGoogleSignIn}
+                        className="flex items-center justify-center gap-3 border w-full py-3 rounded-lg font-medium transition cursor-pointer bg-gray-200 text-black border-gray-200 bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
+                    >
                         <FcGoogle className="text-2xl" />
                         Login with Google
                     </button>
 
-
                     <div className="flex items-center my-6">
-                        <hr className="flex-grow border-gray-300" />
-                        <span className="mx-4 text-gray-400 font-semibold">or</span>
-                        <hr className="flex-grow border-gray-300" />
+                        <hr className="flex-grow border-gray-300 dark:border-gray-600" />
+                        <span className="mx-4 text-gray-500 dark:text-gray-400 font-semibold">or</span>
+                        <hr className="flex-grow border-gray-300 dark:border-gray-600" />
                     </div>
-
 
                     <form onSubmit={handleLogIn} className="space-y-4">
                         <div>
-                            <label className="block font-medium mb-1">Email</label>
+                            <label className="block font-medium mb-1 text-black dark:text-white">Email</label>
                             <input
                                 type="email"
                                 name="email"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-gray-200 text-black border-gray-300 dark:border-gray-200 dark:bg-gray-700 dark:text-white"
                                 placeholder="Enter email"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block font-medium mb-1">Password</label>
+                            <label className="block font-medium mb-1 text-black dark:text-white">Password</label>
                             <input
                                 type="password"
                                 name="password"
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-gray-200 text-black border-gray-300 dark:border-gray-200 dark:bg-gray-700 dark:text-white"
                                 placeholder="Enter password"
                                 required
                             />
@@ -102,11 +103,16 @@ const Login = () => {
 
                         <button
                             type="submit"
-                            className="btn w-full text-white bg-[#ED1C24] hover:bg-[#c9151c] transition"
+                            className="btn border-none w-full text-white bg-[#ED1C24] hover:bg-[#c9151c] transition"
                         >
                             Log In
                         </button>
-                        <small>Don't have an account? <Link to="/signup" className='underline text-[#ED1C24]'>Signup</Link></small>
+                        <small className="block text-center text-black dark:text-white">
+                            Don't have an account?{' '}
+                            <Link to="/signup" className='underline text-[#ED1C24] dark:text-red-400'>
+                                Signup
+                            </Link>
+                        </small>
                     </form>
                 </div>
             </div>
