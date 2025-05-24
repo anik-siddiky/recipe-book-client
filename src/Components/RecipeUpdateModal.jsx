@@ -45,7 +45,7 @@ const RecipeUpdateModal = ({ recipe, onClose }) => {
             return;
         }
 
-        fetch(`http://localhost:3000/recipes/${recipe._id}`, {
+        fetch(`https://recipe-book-server-ten.vercel.app/recipes/${recipe._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)

@@ -23,7 +23,7 @@ const SingleRecipeDetailPage = () => {
     const handleLike = async () => {
         if (userEmail === recipeEmail) return;
         try {
-            const response = await fetch(`http://localhost:3000/recipes/${recipe._id}/like`, {
+            const response = await fetch(`https://recipe-book-server-ten.vercel.app/recipes/${recipe._id}/like`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
