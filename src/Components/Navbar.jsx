@@ -38,10 +38,10 @@ const Navbar = () => {
       <div className="navbar md:w-10/12 mx-auto md:px-0">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-[#ED1C24]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -54,6 +54,7 @@ const Navbar = () => {
                 />
               </svg>
             </div>
+
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-white dark:bg-gray-800 rounded-box z-10 mt-3 w-40 p-2 shadow gap-2"
@@ -65,7 +66,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <img className="md:w-32 w-24" src={navImage} alt="Site Logo" />
+            <img className="md:w-32 w-20" src={navImage} alt="Site Logo" />
           </Link>
         </div>
 
@@ -133,9 +134,8 @@ const Navbar = () => {
                 </div>
 
                 <div
-                  className={`absolute top-full right-0 md:left-1/2 md:-translate-x-1/2 mt-2 md:h-32 h-28 w-32 md:w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg z-50 ${
-                    isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-                  } group-hover:opacity-100 group-hover:visible transition-all duration-200`}
+                  className={`absolute top-full right-0 md:left-1/2 md:-translate-x-1/2 mt-2 md:h-32 h-28 w-32 md:w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg z-50 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    } group-hover:opacity-100 group-hover:visible transition-all duration-200`}
                 >
                   <div className="flex flex-col justify-center mt-5 md:mt-4">
                     <p className="p-1 md:p-2 text-[14px] md:text-[16px] text-center text-black dark:text-white">
