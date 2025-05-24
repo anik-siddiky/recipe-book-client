@@ -2,21 +2,21 @@ import React from 'react';
 import { AiFillLike } from "react-icons/ai";
 import { Link } from 'react-router';
 
+
+
 const RecipeCard = ({ recipe }) => {
+    const placeholderImage = "https://i.ibb.co/DFR9gS3/refresh-hero-city-bd.png";
 
     const { image, title, cuisineType, likeCount, _id } = recipe;
-
-    const placeholderImage = "https://images.deliveryhero.io/image/foodpanda/city-page/refresh-hero-city-bd.png"
-
 
     return (
         <div className="bg-gray-100 dark:bg-gray-800 shadow-xl hover:scale-105 overflow-hidden hover:shadow-lg transition duration-300 rounded-sm">
             <div>
-                <img
-                    src={image || placeholderImage}
-                    alt={title}
-                    className="w-full h-56 object-cover"
-                />
+                <img src={image || placeholderImage} alt={title} className="w-full h-56 object-cover"
+                    onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = placeholderImage;
+                    }} />
             </div>
             <div className="p-4 space-y-2">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{title}</h3>

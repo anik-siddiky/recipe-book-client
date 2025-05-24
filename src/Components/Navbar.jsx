@@ -1,6 +1,6 @@
 import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
-import navImage from '../assets/recipe-book-header.png';
+import navImage from '../assets/recipe-book-header-2.png';
 import { AllContext } from '../Provider/ContextProvider';
 import DarkModeToggleButton from '../Components/DarkModeToggleButton';
 import Swal from 'sweetalert2';
