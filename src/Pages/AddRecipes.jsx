@@ -72,7 +72,7 @@ const AddRecipes = () => {
                     <input
                         type="text"
                         name="title"
-                        className="input input-bordered w-full bg-white border-gray-300 bg-gray-100 text-black dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        className="input input-bordered w-full bg-white border-gray-300 text-black dark:bg-gray-800 dark:text-white dark:border-gray-600"
                         placeholder="Recipe title"
                         required
                     />
@@ -83,7 +83,7 @@ const AddRecipes = () => {
                     <input
                         type="text"
                         name="image"
-                        className="input input-bordered w-full bg-white border-gray-300 bg-gray-100 text-black dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        className="input input-bordered w-full bg-white border-gray-300 text-black dark:bg-gray-800 dark:text-white dark:border-gray-600"
                         placeholder="Enter image URL (4:3 Ratio Preferred)"
                         required
                     />
@@ -94,7 +94,7 @@ const AddRecipes = () => {
                     <input
                         type="text"
                         name="ingredients"
-                        className="input input-bordered w-full bg-white border-gray-300 bg-gray-100 text-black bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        className="input input-bordered w-full border-gray-300 text-black bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
                         placeholder="List of ingredients"
                         required
                     />
@@ -104,7 +104,7 @@ const AddRecipes = () => {
                     <label className="block mb-1 font-semibold text-black dark:text-white">Instructions</label>
                     <textarea
                         name="instructions"
-                        className="textarea textarea-bordered w-full bg-white border-gray-300 bg-gray-100 text-black min-h-[150px] bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        className="textarea textarea-bordered w-full border-gray-300 text-black min-h-[150px] bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
                         placeholder="Step-by-step cooking instructions"
                         required
                     ></textarea>
@@ -114,7 +114,7 @@ const AddRecipes = () => {
                     <label className="block mb-1 font-semibold text-black dark:text-white">Cuisine Type</label>
                     <select
                         name="cuisineType"
-                        className="select bg-white border-gray-300 bg-gray-100 text-black select-bordered w-full bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        className="select bg-white border-gray-300 text-black select-bordered w-full  dark:bg-gray-800 dark:text-white dark:border-gray-600"
                         required
                     >
                         <option value="">Select cuisine</option>
@@ -132,7 +132,7 @@ const AddRecipes = () => {
                     <input
                         type="number"
                         name="prepTime"
-                        className="input bg-white border-gray-300 bg-gray-100 text-black input-bordered w-full bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        className="input bg-white border-gray-300 text-black input-bordered w-full dark:bg-gray-800 dark:text-white dark:border-gray-600"
                         min="1"
                         placeholder="e.g., 30"
                         required
