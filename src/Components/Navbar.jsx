@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { useRef, use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import navImage from '../assets/recipe-book-header-2.png';
 import { AllContext } from '../Provider/ContextProvider';
@@ -10,6 +10,7 @@ const catImg = 'https://i.ibb.co.com/JWzvwk7H/catImg.webp';
 const Navbar = () => {
   const { user, logOut } = use(AllContext);
   const [isOpen, setIsOpen] = useState(false);
+  const drawerRef = useRef(null);
 
   const handleAvatarClick = () => {
     if (window.innerWidth < 768) {
@@ -20,6 +21,7 @@ const Navbar = () => {
   const handelLogOut = () => {
     logOut()
       .then(() => {
+        closeDrawer();
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -33,9 +35,15 @@ const Navbar = () => {
       });
   };
 
+  const closeDrawer = () => {
+    if (drawerRef.current) {
+      drawerRef.current.checked = false;
+    }
+  };
+
   return (
     <div className="drawer">
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <input ref={drawerRef} id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Top Navbar */}
         <div className="navbar bg-white dark:bg-gray-900 shadow-sm transition-colors">
@@ -155,12 +163,28 @@ const Navbar = () => {
             </div>
           </div>
           <div className="divider divider-neutral"></div>
-          <NavLink to="/" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}><li className='text-[18px] font-light'>Home</li></NavLink>
-          <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}><li className='text-[17px] font-light'>All Recipe</li></NavLink>
-          <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}><li className='text-[17px] font-light'>Add Recipe</li></NavLink>
-          <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}><li className='text-[17px] font-light'>My Recipe</li></NavLink>
-          <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}><li className='text-[17px] font-light'>Dashboard</li></NavLink>
-          {user && <NavLink onClick={handelLogOut} className="text-[17px] font-light">Log Out</NavLink>}
+          <NavLink to="/" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
+            <li className='text-[17px] font-light'>Home</li>
+          </NavLink>
+
+          <NavLink to="/all-recipes" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
+            <li className='text-[17px] font-light'>All Recipe</li>
+          </NavLink>
+
+          <NavLink to="/add-recipes" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
+            <li className='text-[17px] font-light'>Add Recipe</li>
+          </NavLink>
+
+          <NavLink to="/my-recipes" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
+            <li className='text-[17px] font-light'>My Recipe</li>
+          </NavLink>
+
+          <NavLink to="/dashboard" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
+            <li className='text-[17px] font-light'>Dashboard</li>
+          </NavLink>
+          {
+            user && <NavLink onClick={handelLogOut} className="text-[17px] font-light">Log Out</NavLink>
+          }
         </ul>
       </div>
     </div>

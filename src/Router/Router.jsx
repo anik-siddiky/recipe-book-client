@@ -12,6 +12,7 @@ import MyRecipePage from "../Pages/MyRecipePage";
 import ErrorPage from "../Pages/ErrorPage";
 import ErrorLayout from "../Layouts/ErrorLayout";
 import Dashboard from "../Layouts/Dashboard";
+import DashboardHome from "../Pages/DashboardPages/DashboardHome";
 
 const router = createBrowserRouter([
     {
@@ -72,7 +73,18 @@ const router = createBrowserRouter([
                 <Dashboard></Dashboard>
             </PrivateRoute>,
         children: [
-            
+            {
+                path: '/dashboard',
+                element: <DashboardHome></DashboardHome>
+            },
+            {
+                path: '/dashboard/my-recipes',
+                element: <MyRecipePage></MyRecipePage>
+            },
+            {
+                path: '/dashboard/add-recipe',
+                element: <AddRecipes></AddRecipes>
+            }
         ]
     },
     {
