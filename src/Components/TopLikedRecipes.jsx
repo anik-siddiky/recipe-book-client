@@ -7,7 +7,7 @@ const TopLikedRecipes = () => {
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/recipes/top-liked')
+        fetch('https://recipe-book-server-ten.vercel.app/recipes/top-liked')
             .then(res => res.json())
             .then(data => setRecipes(data))
     }, [])

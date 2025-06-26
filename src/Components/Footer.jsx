@@ -7,7 +7,7 @@ const Footer = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     return (
-        <div className='bg-black py-20 md:py-28 md:flex'>
+        <div className='bg-black py-20 md:py-28 md:flex px-0 md:px-4 lg:px-0'>
 
 
             <div className="footer footer-horizontal footer-center bg-black text-primary-content md:px-0 px-3">
