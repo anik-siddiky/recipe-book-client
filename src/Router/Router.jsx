@@ -11,6 +11,7 @@ import SingleRecipeDetailPage from "../Pages/SingleRecipeDetailPage";
 import MyRecipePage from "../Pages/MyRecipePage";
 import ErrorPage from "../Pages/ErrorPage";
 import ErrorLayout from "../Layouts/ErrorLayout";
+import Dashboard from "../Layouts/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -62,6 +63,16 @@ const router = createBrowserRouter([
                     </PrivateRoute>,
                 hydrateFallbackElement: <Loading></Loading>
             }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element:
+            <PrivateRoute>
+                <Dashboard></Dashboard>
+            </PrivateRoute>,
+        children: [
+            
         ]
     },
     {

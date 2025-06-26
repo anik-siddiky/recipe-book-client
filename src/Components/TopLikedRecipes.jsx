@@ -7,15 +7,18 @@ const TopLikedRecipes = () => {
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        fetch('https://recipe-book-server-ten.vercel.app/recipes/top-liked')
+        fetch('http://localhost:3000/recipes/top-liked')
             .then(res => res.json())
             .then(data => setRecipes(data))
     }, [])
 
     return (
-        <div className='md:w-10/12 md:px-0 px-4 mx-auto md:py-20 py-10'>
-            <h2 className='text-center md:text-4xl text-3xl font-semibold md:mb-8 mb-5 text-black dark:text-white'>Our Top Recipes</h2>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+        <div className='lg:w-10/12 lg:px-0 px-4 mx-auto md:py-32 py-16'>
+            <h2 className='text-center md:text-4xl text-2xl font-semibold md:mb-6 mb-3 text-black dark:text-white'>Our Top Recipes</h2>
+            <p className='text-center text-gray-600 dark:text-gray-300 mb-6 md:mb-10 max-w-2xl mx-auto'>
+                Discover the most loved recipes, hand-picked based on user favorites. These dishes have won hearts and taste buds alike!
+            </p>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
                 {
                     recipes.map(recipe => <TopLikedRecipeCard key={recipe._id} recipe={recipe}></TopLikedRecipeCard>)
                 }

@@ -34,21 +34,17 @@ const chefs = [
 
 const TopCookSection = () => {
     return (
-        <div className="pb-20 md:px-0 px-4">
-            <h3 className="text-center text-2xl md:text-4xl font-bold md:mb-12 mb-6 text-black dark:text-white">
-                Our Top Recipe Creators
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="pb-20 lg:px-0 px-4">
+            <h3 className="text-center text-2xl md:text-4xl font-semibold md:mb-6 mb-3 text-black dark:text-white">Our Top Creators</h3>
+            <p className="text-center text-gray-600 dark:text-gray-300 mb-6 md:mb-10 max-w-2xl mx-auto">Meet the masterminds behind our best recipes. These top chefs bring passion, creativity, and expertise to every dish they craft.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:w-10/12 mx-auto">
                 {chefs.map((chef, index) => (
-                    <div
-                        key={index}
-                        className="md:bg-white bg-gray-100 shadow-lg rounded-xl p-6 text-center transition-transform transform hover:scale-105 border border-transparent hover:shadow-[0_0_15px_#ED1C24] dark:bg-gray-800">
+                    <div key={index} className=" bg-gray-100 shadow-lg rounded-xl p-6 text-center transition-transform transform hover:scale-103 border border-transparent hover:shadow-2xl dark:bg-gray-800">
                         <img
                             src={chef.image}
                             alt={chef.name}
-                            className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-[#ED1C24] shadow-md"/>
-                        <h4 className="text-xl font-semibold text-gray-800 mb-2 text-black dark:text-white">
+                            className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-[#ED1C24] shadow-md" />
+                        <h4 className="text-xl font-semibold text-gray-700 mb-2 dark:text-white">
                             {chef.name}
                         </h4>
                         <div className="flex justify-center mb-3">
@@ -56,7 +52,7 @@ const TopCookSection = () => {
                                 <FaStar key={i} color="#FFD700" className="mx-0.5" />
                             ))}
                         </div>
-                        <p className="text-black dark:text-white text-sm">{chef.description}</p>
+                        <p className="text-gray-700 dark:text-white text-sm">{chef.description}</p>
                     </div>
                 ))}
             </div>

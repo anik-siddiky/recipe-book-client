@@ -84,10 +84,10 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="absolute top-1/2 left-3 md:left-5 -translate-y-1/2 z-30">
+            <div className="absolute top-1/2 left-3 md:left-5 -translate-y-1/2 z-30 hidden lg:block">
                 <button onClick={prevSlide} className="btn btn-circle btn-sm md:btn-md">❮</button>
             </div>
-            <div className="absolute top-1/2 right-3 md:right-5 -translate-y-1/2 z-30">
+            <div className="absolute top-1/2 right-3 md:right-5 -translate-y-1/2 z-30 hidden lg:block">
                 <button onClick={nextSlide} className="btn btn-circle btn-sm md:btn-md">❯</button>
             </div>
         </div>
