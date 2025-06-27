@@ -13,7 +13,7 @@ const HomeLayout = () => {
                 </nav>
             </header>
             <main>
-                <div>
+                <div className='pt-16 lg:pt-20'>
                     <Outlet></Outlet>
                 </div>
             </main>
