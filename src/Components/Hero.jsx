@@ -64,7 +64,7 @@ const Hero = () => {
                                     words={['Next Favorite Meal', 'Dream Dinner Tonight', 'Go-To Comfort Dish', 'Ultimate Feast']}
                                     loop={true}
                                     cursor
-                                    cursorStyle="..."
+                                    cursorStyle="|"
                                     typeSpeed={60}
                                     deleteSpeed={40}
                                     delaySpeed={1000}

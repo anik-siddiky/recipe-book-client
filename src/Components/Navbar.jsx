@@ -44,9 +44,9 @@ const Navbar = () => {
   return (
     <div className="drawer">
       <input ref={drawerRef} id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col">
+      <div className="drawer-content flex flex-col overflow-visible">
         {/* Top Navbar */}
-        <div className="navbar bg-white dark:bg-gray-900 shadow-sm transition-colors">
+        <div className="navbar fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-sm transition-colors">
           <div className="w-full lg:w-10/12 mx-auto flex justify-between items-center px-4">
             {/* Mobile: hamburger */}
 
