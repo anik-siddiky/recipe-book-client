@@ -74,11 +74,10 @@ const MyRecipePage = () => {
     }
 
     return (
-        <div className='md:py-10 py-5 md:mb-20 min-h-screen'>
-            <h2 className='text-center font-medium md:text-4xl text-3xl mb-3 text-black dark:text-white'>
-                Your Total Recipes: {myRecipes.length}
-            </h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 md:w-10/12 md:px-0 px-4 mx-auto'>
+        <div className='md:py-10 py-5 md:mb-20 min-h-screen lg:px-6 px-4 mx-auto'>
+            <h2 className='font-semibold md:text-4xl text-2xl text-black dark:text-white mb-1'> Your Recipe Collection ({myRecipes.length})</h2>
+            <p className='text-gray-600 dark:text-gray-300 text-base mb-8 lg:mb-14'> You can edit or delete any of your submitted recipes below.</p>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                 {myRecipes.map(recipe => (
                     <MyRecipePageCard
                         key={recipe._id}

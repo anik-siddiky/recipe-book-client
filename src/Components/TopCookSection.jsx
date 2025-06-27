@@ -39,7 +39,7 @@ const TopCookSection = () => {
             <p className="text-center text-gray-600 dark:text-gray-300 mb-6 md:mb-10 max-w-2xl mx-auto">Meet the masterminds behind our best recipes. These top chefs bring passion, creativity, and expertise to every dish they craft.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:w-10/12 mx-auto">
                 {chefs.map((chef, index) => (
-                    <div key={index} className=" bg-gray-100 shadow-lg rounded-xl p-6 text-center transition-transform transform hover:scale-103 border border-transparent hover:shadow-2xl dark:bg-gray-800">
+                    <div key={index} className=" bg-gray-100 shadow-lg rounded-xl p-6 text-center transition-transform transform hover:scale-103 border border-transparent hover:shadow-2xl dark:bg-gray-800 cursor-pointer">
                         <img
                             src={chef.image}
                             alt={chef.name}

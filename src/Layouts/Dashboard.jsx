@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { NavLink, Outlet, Link } from 'react-router';
 import { Home, PlusCircle, BookOpen } from 'lucide-react';
 import image from '../assets/recipe-book-header-2.png';
+import { AllContext } from '../Provider/ContextProvider';
+import DarkModeToggleButton from '../Components/DarkModeToggleButton';
 
 const Dashboard = () => {
     const drawerRef = useRef(null);
+    const { user } = useContext(AllContext);
 
     const closeDrawer = () => {
         if (drawerRef.current) {
@@ -32,7 +35,7 @@ const Dashboard = () => {
                     </div>
 
                     {/* Main content from nested routes */}
-                    <div className="p-6 flex-1">
+                    <div className="flex-1">
                         <Outlet />
                     </div>
                 </div>
@@ -41,17 +44,36 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <aside className="h-full w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-6 flex flex-col">
-                        {/* Logo/Heading */}
-                        <Link to="/" className="mb-8 block text-center">
-                            <img
-                                src={image}
-                                alt="Recipe Book Logo"
-                                className="mx-auto h-16 object-contain"
-                            />
-                        </Link>
+                        {/* Logo */}
+                        <div className='flex justify-between items-center'>
+                            <Link to="/" className="mb-4 block text-center">
+                                <img
+                                    src={image}
+                                    alt="Recipe Book Logo"
+                                    className="lg:mx-auto h-16 object-contain"
+                                />
+                            </Link>
+                            <div className='mb-4'>
+                                <DarkModeToggleButton />
+                            </div>
+                        </div>
+
+                        {/* User Info */}
+                        {user && (
+                            <div className='bg-gray-200 dark:bg-gray-700 rounded-xl mb-6'>
+                                <div className="flex justify-center items-center gap-5 p-3">
+                                    <p className="font-semibold">{user.displayName || 'Anonymous'}</p>
+
+                                    <img
+                                        src={user.photoURL || 'https://via.placeholder.com/80'}
+                                        alt={user.displayName || 'User'}
+                                        className="w-16 h-16 rounded-full object-cover border-2 border-red-500" />
+                                </div>
+                            </div>
+                        )}
 
                         {/* Navigation Links */}
-                        <ul className="space-y-2 flex-1">
+                        <ul className="space-y-4 flex-1">
                             <li>
                                 <NavLink
                                     to="/dashboard"

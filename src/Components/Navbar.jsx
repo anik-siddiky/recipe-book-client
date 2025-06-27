@@ -85,17 +85,18 @@ const Navbar = () => {
                 <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
                   <li className="md:text-[18px] font-normal">All Recipe</li>
                 </NavLink>
-                <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
+                {/* <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
                   <li className="md:text-[18px] font-normal">Add Recipe</li>
                 </NavLink>
                 <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
                   <li className="md:text-[18px] font-normal">My Recipe</li>
-                </NavLink>
-                {user && (
+                </NavLink> */}
                   <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
                     <li className="md:text-[18px] font-normal">Dashboard</li>
                   </NavLink>
-                )}
+                  <NavLink to="/about" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
+                    <li className="md:text-[18px] font-normal">About us</li>
+                  </NavLink>
               </ul>
             </div>
 
@@ -171,16 +172,19 @@ const Navbar = () => {
             <li className='text-[17px] font-light'>All Recipe</li>
           </NavLink>
 
-          <NavLink to="/add-recipes" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
+          {/* <NavLink to="/add-recipes" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
             <li className='text-[17px] font-light'>Add Recipe</li>
           </NavLink>
 
           <NavLink to="/my-recipes" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
             <li className='text-[17px] font-light'>My Recipe</li>
-          </NavLink>
+          </NavLink> */}
 
           <NavLink to="/dashboard" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
             <li className='text-[17px] font-light'>Dashboard</li>
+          </NavLink>
+          <NavLink to="/about" onClick={closeDrawer} className={({ isActive }) => isActive ? 'text-[#ED1C24]' : ''}>
+            <li className='text-[17px] font-light'>About us</li>
           </NavLink>
           {
             user && <NavLink onClick={handelLogOut} className="text-[17px] font-light">Log Out</NavLink>
