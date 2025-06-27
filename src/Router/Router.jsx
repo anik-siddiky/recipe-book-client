@@ -13,6 +13,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import ErrorLayout from "../Layouts/ErrorLayout";
 import Dashboard from "../Layouts/Dashboard";
 import DashboardHome from "../Pages/DashboardPages/DashboardHome";
+import About from "../Pages/About";
 
 const router = createBrowserRouter([
     {
@@ -40,13 +41,13 @@ const router = createBrowserRouter([
                 loader: () => fetch('https://recipe-book-server-ten.vercel.app/recipes'),
                 hydrateFallbackElement: <Loading></Loading>
             },
-            {
-                path: "add-recipes",
-                element:
-                    <PrivateRoute>
-                        <AddRecipes></AddRecipes>
-                    </PrivateRoute>
-            },
+            // {
+            //     path: "add-recipes",
+            //     element:
+            //         <PrivateRoute>
+            //             <AddRecipes></AddRecipes>
+            //         </PrivateRoute>
+            // },
             {
                 path: "recipe-details/:id",
                 loader: ({ params }) => fetch(`https://recipe-book-server-ten.vercel.app/recipes/${params.id}`),
@@ -56,13 +57,17 @@ const router = createBrowserRouter([
                     </PrivateRoute>,
                 hydrateFallbackElement: <Loading></Loading>
             },
+            // {
+            //     path: "my-recipes",
+            //     element:
+            //         <PrivateRoute>
+            //             <MyRecipePage></MyRecipePage>
+            //         </PrivateRoute>,
+            //     hydrateFallbackElement: <Loading></Loading>
+            // },
             {
-                path: "my-recipes",
-                element:
-                    <PrivateRoute>
-                        <MyRecipePage></MyRecipePage>
-                    </PrivateRoute>,
-                hydrateFallbackElement: <Loading></Loading>
+                path: 'about',
+                element: <About></About>
             }
         ]
     },

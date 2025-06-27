@@ -9,7 +9,7 @@ const MyRecipePageCard = ({ recipe, handleRecipeDelete, onUpdateClick }) => {
     } = recipe;
 
     return (
-        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden flex flex-col">
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden flex flex-col hover:scale-103 transition hover:shadow-2xl">
             <img src={image} alt={title} className="w-full h-52 object-cover" />
 
             <div className="p-4 flex flex-col flex-grow">
@@ -45,14 +45,14 @@ const MyRecipePageCard = ({ recipe, handleRecipeDelete, onUpdateClick }) => {
                 <div className="mt-auto flex justify-between items-center gap-4 pt-4">
                     <button
                     onClick={onUpdateClick}
-                        className="bg-black hover:bg-gray-600 text-white px-4 py-2 w-full flex justify-center items-center gap-1"
+                        className="bg-black hover:bg-gray-800 text-white px-4 py-2 w-full flex justify-center items-center gap-1 cursor-pointer"
                     >
                         <FaEdit size={20} />
                         Update
                     </button>
                     <button
                         onClick={() => handleRecipeDelete(_id)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 w-full flex justify-center items-center gap-1"
+                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 w-full flex justify-center items-center gap-1 cursor-pointer"
                     >
                         <MdDelete size={20} />
                         Delete
