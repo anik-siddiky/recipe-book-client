@@ -1,6 +1,6 @@
-# Recipe Book - Client Side
+# Dishly Book - Client Side
 
-A modern, interactive recipe book application where users can explore, search, and manage recipes with a sleek and engaging UI.
+A modern, interactive dishly book application where users can explore, search, and manage recipes with a sleek and engaging UI.
 
 Live Site: [recipe-book-80a7a.web.app](https://recipe-book-80a7a.web.app/)
 

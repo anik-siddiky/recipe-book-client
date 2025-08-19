@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import { NavLink, Outlet, Link } from 'react-router';
 import { Home, PlusCircle, BookOpen } from 'lucide-react';
-import image from '../assets/recipe-book-header-2.png';
+import image from '../assets/recipe-book-header-3.png';
 import { AllContext } from '../Provider/ContextProvider';
 import DarkModeToggleButton from '../Components/DarkModeToggleButton';
 
@@ -49,7 +49,7 @@ const Dashboard = () => {
                             <Link to="/" className="mb-4 block text-center">
                                 <img
                                     src={image}
-                                    alt="Recipe Book Logo"
+                                    alt="Dishly Book Logo"
                                     className="lg:mx-auto h-16 object-contain"
                                 />
                             </Link>

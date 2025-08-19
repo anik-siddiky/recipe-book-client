@@ -1,5 +1,5 @@
 import React from 'react';
-import footerLogo from "../assets/recipe-book-footer.png"
+import footerLogo from "../assets/recipe-book-footer2.png"
 import { Link } from 'react-router';
 
 const Footer = () => {
@@ -20,7 +20,7 @@ const Footer = () => {
                         <br />
                         bringing families together and serving unforgettable flavor since 2015!
                     </p>
-                    <p>© 2025 Recipe Book. All rights reserved.</p>
+                    <p>© 2025 Dishly Book. All rights reserved.</p>
                 </aside>
                 <nav>
                     <div className="grid grid-flow-col gap-4">
