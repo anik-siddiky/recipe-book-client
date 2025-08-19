@@ -8,14 +8,3 @@
 * {
     font-family: "Poppins", sans-serif;
 }
-
-@font-face {
-  font-family: 'PaybAck';
-  src: url('/fonts/PaybAck.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-.payback-font {
-  font-family: 'PaybAck', sans-serif;
-}

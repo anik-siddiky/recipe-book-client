@@ -1,7 +1,6 @@
 import React, { useRef, use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import navImage from '../assets/recipe-book-header-3.png';
-import mainLogo from '../assets/mainLogo.png';
 import { AllContext } from '../Provider/ContextProvider';
 import DarkModeToggleButton from '../Components/DarkModeToggleButton';
 import Swal from 'sweetalert2';
@@ -72,9 +71,8 @@ const Navbar = () => {
 
             {/* Desktop logo */}
             <div className="hidden md:block">
-              <Link className='flex items-center gap-1' to="/">
-                <img className="w-10" src={mainLogo} alt="Site Logo" />
-                <p className='payback-font text-black dark:text-white font-extrabold text-3xl leading-7'>Dishly <br /> Book</p>
+              <Link to="/">
+                <img className="md:w-32" src={navImage} alt="Site Logo" />
               </Link>
             </div>
 
@@ -87,6 +85,12 @@ const Navbar = () => {
                 <NavLink to="/all-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
                   <li className="md:text-[18px] font-normal">All Recipe</li>
                 </NavLink>
+                {/* <NavLink to="/add-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
+                  <li className="md:text-[18px] font-normal">Add Recipe</li>
+                </NavLink>
+                <NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
+                  <li className="md:text-[18px] font-normal">My Recipe</li>
+                </NavLink> */}
                   <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'text-[#ED1C24]' : 'hover:text-[#ED1C24] text-black dark:text-white'}>
                     <li className="md:text-[18px] font-normal">Dashboard</li>
                   </NavLink>
